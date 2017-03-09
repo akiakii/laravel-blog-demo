@@ -50,7 +50,7 @@
     </div>
 </div>
 
-@stop
+@stop 
 
 @section('scripts')
 <script src="/assets/pickadate/picker.js"></script>

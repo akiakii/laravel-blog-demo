@@ -11,20 +11,18 @@ use Illuminate\Http\Request;
 class BlogController extends Controller
 {
     public function index(Request $request)
-    {   
+    {
         $tag = $request->get('tag');
-       
         $data = $this->dispatch(new BlogIndexData($tag));
         $layout = $tag ? Tag::layout($tag) : 'blog.layouts.index';
-        // $post = ($data['posts']);
-        // $items = $post['items'];
-        // dd($post);
         return view($layout, $data);
     }
 
     public function showPost($slug, Request $request)
-    {   
+    {
         $post = Post::with('tags')->whereSlug($slug)->firstOrFail();
+        $post->views = $post->views+1;
+        $post->save();
         $tag = $request->get('tag');
         if ($tag) {
             $tag = Tag::whereTag($tag)->firstOrFail();

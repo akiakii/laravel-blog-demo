@@ -10,6 +10,7 @@ use App\Http\Requests\PostCreateRequest;
 use App\Http\Requests\PostUpdateRequest;
 use App\Http\Controllers\Controller;
 use App\Post;
+
 class PostController extends Controller
 {
     //
@@ -17,8 +18,10 @@ class PostController extends Controller
 /**
      * Display a listing of the posts.
      */
+
     public function index()
     {
+        //Entrust::can('admin');
         return view('admin.post.index')
                         ->withPosts(Post::all());
     }

@@ -23,6 +23,7 @@ class PostFormFields extends Job implements SelfHandling
      */
     protected $fieldList = [
         'title' => '',
+        'slug' => '',
         'subtitle' => '',
         'page_image' => '',
         'content' => '',

@@ -37,6 +37,7 @@
                 in
                 {!! join(', ', $post->tagLinks()) !!}
               @endif
+              <i class="fa fa-eye"></i>  {{$post->views}}
             </p>
           </div>
           <hr>

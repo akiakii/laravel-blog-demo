@@ -8,7 +8,7 @@
                 <div class="panel-heading">Dashboard</div>
 
                 <div class="panel-body">
-                    You are logged in!
+                    <h1>你没有权限进入后台</h1>
                 </div>
             </div>
         </div>

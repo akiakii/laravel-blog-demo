@@ -11,6 +11,11 @@
 |
 */
 
+//estrust test
+
+
+
+
 Route::get('/', function () {
     return redirect('/blog');
 });
@@ -27,36 +32,30 @@ Route::get('admin', function () {
 Route::auth();
 
 Route::get('/home', 'HomeController@index');
-// Route::get(‘/’, function () { return redirect(‘/blog’);});
-// Route::get(‘blog’, ‘BlogController@index’);Route::get(‘blog/{slug}’, ‘BlogController@showPost’);
-// Route::get(‘admin’, function () { return redirect(‘/admin/post’);});
-// Route::group([‘namespace’ => ‘Admin’, ‘middleware’ => ‘auth’], function () { Route::resource(‘admin/post’, ‘PostController’); 
-// Route::resource(‘admin/tag’, ‘TagController’); Route::get(‘admin/upload’, ‘UploadController@index’);});
-// // Logging in and out
-// Route::get(‘/auth/login’, ‘AuthAuthController@getLogin’);
-// Route::post(‘/auth/login’, ‘AuthAuthController@postLogin’);
-// Route::get(‘/auth/logout’, ‘AuthAuthController@getLogout’);
-// Admin area
+
 Route::get('admin', function () {
     return redirect('/admin/post');
 });
-Route::group(['namespace' => 'Admin', 'middleware' => 'auth'], function () {
+//Route::get('/admin/user', 'Admin\UserController@index');
+Route::group(['namespace' => 'Admin', 'middleware' => 'auth','middleware'=>'admin'], function () {
     Route::resource('admin/post', 'PostController', ['except' => 'show']);
     Route::resource('admin/tag', 'TagController', ['except' => 'show']);
+    Route::resource('admin/user', 'UserController', ['except' => 'show']);
     Route::get('admin/upload', 'UploadController@index');
 });
 
-// Logging in and out
+// 注册
 Route::get('/auth/login', 'Auth\AuthController@getLogin');
 Route::post('/auth/login', 'Auth\AuthController@postLogin');
 Route::get('/auth/logout', 'Auth\AuthController@getLogout');
 
 // //upload
 // // 在这一行下面
-Route::get('admin/upload', 'Admin\UploadController@index');
+//Route::get('admin/upload', 'Admin\UploadController@index');
 
-// // 添加如下路由
+// // 上传
 Route::post('admin/upload/file', 'Admin\UploadController@uploadFile');
 Route::delete('admin/upload/file', 'Admin\UploadController@deleteFile');
 Route::post('admin/upload/folder', 'Admin\UploadController@createFolder');
 Route::delete('admin/upload/folder', 'Admin\UploadController@deleteFolder');
+//用户

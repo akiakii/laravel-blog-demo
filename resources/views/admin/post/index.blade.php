@@ -25,6 +25,7 @@
                     <th>Published</th>
                     <th>Title</th>
                     <th>Subtitle</th>
+                    <th>pv</th>
                     <th data-sortable="false">Actions</th>
                 </tr>
             </thead>
@@ -36,6 +37,7 @@
                     </td>
                     <td>{{ $post->title }}</td>
                     <td>{{ $post->subtitle }}</td>
+                    <td>{{ $post->views }}</td>
                     <td>
                         <a href="/admin/post/{{ $post->id }}/edit" class="btn btn-xs btn-info">
                             <i class="fa fa-edit"></i> Edit

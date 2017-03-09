@@ -9,6 +9,14 @@
             </div>
         </div>
         <div class="form-group">
+            <label for="slug" class="col-md-2 control-label">
+                Slug
+            </label>
+            <div class="col-md-10">
+                <input type="text" class="form-control" name="slug" id="slug" value="{{ $slug }}">
+            </div>
+        </div>
+        <div class="form-group">
             <label for="subtitle" class="col-md-2 control-label">
                 Subtitle
             </label>
